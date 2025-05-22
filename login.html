@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Le Naturaliste - Connexion Client</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    form { max-width: 300px; margin: auto; }
+    label, input { display: block; width: 100%; margin-bottom: 10px; }
+    button { padding: 10px; width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>Connexion Client</h1>
+  <form id="loginForm">
+    <label for="clientName">Nom du client :</label>
+    <input type="text" id="clientName" required placeholder="Exemple : Joyaux Laurent" />
+    <button type="submit">Se connecter</button>
+  </form>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const clientName = document.getElementById('clientName').value.trim();
+      if(clientName === '') {
+        alert('Veuillez entrer votre nom.');
+        return;
+      }
+      // Enregistrer le nom en localStorage et rediriger vers page client
+      localStorage.setItem('clientName', clientName);
+      window.location.href = 'client.html';
+    });
+  </script>
+</body>
+</html>

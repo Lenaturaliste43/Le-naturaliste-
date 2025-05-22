@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Le Naturaliste - Suivi Client</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #2E8B57; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Suivi de votre commande</h1>
+  <div id="clientInfo"></div>
+  <script>
+    const clientName = localStorage.getItem('clientName') || 'Client';
+    document.getElementById('clientInfo').innerHTML = `<h2>Bonjour ${clientName}</h2>`;
+
+    // Exemple de données pour Joyaux Laurent (placeholder)
+    if(clientName.toLowerCase() === 'joyaux laurent') {
+      document.getElementById('clientInfo').innerHTML += `
+      <h3>Peaux reçues :</h3>
+      <ul>
+        <li>2 capes d'impala à 100€/unité</li>
+        <li>1 cape de buffle à 380€</li>
+        <li>3 capes de gnou à 200€/unité</li>
+        <li>1 backskin de springbok à 50€</li>
+      </ul>
+      <h3>Peaux déjà faites :</h3>
+      <ul>
+        <li>2 capes d'impala</li>
+      </ul>
+      <h3>Acompte versé :</h3>
+      <p>500€</p>`;
+    } else {
+      document.getElementById('clientInfo').innerHTML += `<p>Aucune donnée disponible pour ce client.</p>`;
+    }
+  </script>
+</body>
+</html>
